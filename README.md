@@ -1,9 +1,9 @@
 swiperproxy
 ===========
 
-[![Build Status](https://travis-ci.org/swiperproxy/swiperproxy.svg?branch=develop)](https://travis-ci.org/swiperproxy/swiperproxy)
-
 SwiperProxy is a very easy to use HTTP and HTTPS web proxy.
+
+NOTE: This is my fork but every reference in code and readme is left intact (mentioning original project)
 
 ![SwiperProxy Screenshot](doc/screenshot.png)
 

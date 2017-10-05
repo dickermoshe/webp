@@ -4,6 +4,6 @@ set -e
 
 cd $(dirname $0)
 
-IMAGE="swiperproxy/swiperproxy"
+IMAGE="fopina/swiperproxy"
 
 docker build -t $IMAGE -f Dockerfile ..
