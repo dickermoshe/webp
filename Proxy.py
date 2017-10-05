@@ -77,7 +77,7 @@ class ProxyHandler(BaseHTTPRequestHandler):
             pass
 
     def is_ssl(self):
-        return False
+        return self.server.config.use_forwarded_proto and self.headers.getheader('x-forwarded-proto') == 'https'
 
     def rewrite_referer(self, url):
         """
@@ -821,6 +821,7 @@ class Config:
         self.gzip_client_response = True
         self.gzip_server_response = True
         self.use_forwarded_for = False
+        self.use_forwarded_proto = False
         self.threadpool_size = 64
         self.block_list = None
         self.block_target = None
@@ -900,6 +901,8 @@ class Config:
                                                         'gzip_server_response')
             self.use_forwarded_for = conf.getboolean('global',
                                                      'use_forwarded_for')
+            self.use_forwarded_proto = conf.getboolean('global',
+                                                       'use_forwarded_proto')
             self.threadpool_size = conf.getint('global', 'threadpool_size')
             self.block_list = conf.get('global', 'block_list')
             self.block_target = conf.get('global', 'block_target')
