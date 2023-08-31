@@ -1,4 +1,4 @@
-FROM python:2.7.14-alpine as builder
+FROM python:2.7.18-alpine as builder
 
 RUN apk add --no-cache build-base linux-headers python-dev file
 RUN pip install cython==0.27.1
@@ -14,7 +14,7 @@ WORKDIR /opt/SwiperProxy/swiperproxy/include/streamhtmlparser/src/py-streamhtmlp
 RUN make && make install
 
 
-FROM python:2.7.14-alpine
+FROM python:2.7.18-alpine
 
 RUN pip install ipy==0.83
 RUN mkdir -p /var/log/swiperproxy/
