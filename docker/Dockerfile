@@ -8,7 +8,7 @@ RUN mkdir -p /opt/SwiperProxy
 COPY . /opt/SwiperProxy/swiperproxy
 
 WORKDIR /opt/SwiperProxy/swiperproxy/include/streamhtmlparser
-RUN ./configure && make && make install
+RUN ./configure --build=aarch64-unknown-linux-gnu && make && make install
 
 WORKDIR /opt/SwiperProxy/swiperproxy/include/streamhtmlparser/src/py-streamhtmlparser
 RUN make && make install
